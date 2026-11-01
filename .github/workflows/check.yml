@@ -1,0 +1,11 @@
+name: Prototype syntax
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Check prototype JavaScript (not a security audit)
+        run: node --check apps/prototype/app.js
